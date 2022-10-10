@@ -1,2 +1,2 @@
 #!/bin/bash
-sort -h /etc/passwd
+sort -n /etc/passwd
