@@ -2,7 +2,6 @@
 # installs nginx web server
 apt-get -y update
 apt-get -y install nginx
-service nginx stop
 sed -i 's/listen\s*80;/listen 8080;/g' /etc/nginx/sites-available/default
 curl -s http://localhost/ | grep -q 'Hello World!'
 service nginx start
