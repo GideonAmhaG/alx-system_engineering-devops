@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# Repairs symbolic link
+# Configure the server to enable Nginx on 80 port
 
-rm /etc/nginx/sites-enabled/default
-ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-service nginx restart
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+pkill -1 nginx
