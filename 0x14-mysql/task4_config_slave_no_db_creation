@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# config slave
+sudo mysql -u root -p -e "STOP SLAVE;" -h localhost
+sudo mysql -u root -p -e "RESET SLAVE ALL;" -h localhost
+sudo mysql -u root -p -e "CHANGE MASTER TO MASTER_HOST='10.247.15.83', MASTER_USER='replica_user', MASTER_PASSWORD='password', MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=154;" -h localhost
+sudo mysql -u root -p -e "START SLAVE;" -h localhost
