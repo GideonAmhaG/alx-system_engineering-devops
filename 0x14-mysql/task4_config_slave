@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-# Create a database named tyrell_corp.
-# Within the tyrell_corp database create a table named nexus6 and add at least one entry to it.
 # config slave
-sudo mysql -u root -p -e "CREATE DATABASE tyrell_corp; USE tyrell_corp; CREATE TABLE nexus6 (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255)); INSERT INTO nexus6 (name) VALUES ('entry1');" -h localhost
+sudo mysql -u root -p -e "STOP SLAVE;" -h localhost
+sudo mysql -u root -p -e "RESET SLAVE ALL;" -h localhost
 sudo mysql -u root -p -e "CHANGE MASTER TO MASTER_HOST='10.247.15.83', MASTER_USER='replica_user', MASTER_PASSWORD='password', MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=154;" -h localhost
 sudo mysql -u root -p -e "START SLAVE;" -h localhost
