@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Bash script to reload Gunicorn in a graceful way
-master_pid=$(pgrep -f gunicorn master)
+master_pid=$(pgrep -f gunicorn master -o)
 kill -HUP "$master_pid"
